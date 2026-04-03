@@ -37,11 +37,20 @@ ln -s /path/to/ai-agent-skills/claude-code/skills/* ~/.claude/skills/
 
 ## Available Skills
 
+### Claude Code
+
+| Skill | Description |
+|-------|-------------|
+| [code-review](claude-code/skills/code-review/SKILL.md) | Review code changes as an expert maintainer against project standards |
+| [test-review](claude-code/skills/test-review/SKILL.md) | Review test code as a test expert and python packaging specialist |
+| [doc-review](claude-code/skills/doc-review/SKILL.md) | Review documentation changes as a documentation and technical writing expert |
+| [refactor-analysis](claude-code/skills/refactor-analysis/SKILL.md) | Analyze refactoring for structural regressions across 6 dimensions |
+
 ### Cursor
 
 | Skill | Description |
 |-------|-------------|
-| [refactor-analysis](cursor/skills/refactor-analysis/SKILL.md) | Analyze refactoring for structural regressions across 6 dimensions (DRY, abstraction, behavioral equivalence, API compatibility, cache safety, clean code) |
+| [refactor-analysis](cursor/skills/refactor-analysis/SKILL.md) | Analyze refactoring for structural regressions across 6 dimensions |
 
 ## License
 
