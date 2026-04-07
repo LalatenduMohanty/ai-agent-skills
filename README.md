@@ -35,22 +35,42 @@ ln -s /path/to/ai-agent-skills/cursor/skills/refactor-analysis ~/.cursor/skills/
 ln -s /path/to/ai-agent-skills/claude-code/skills/* ~/.claude/skills/
 ```
 
+## Development
+
+The skills tables in this README are auto-generated from `SKILL.md` frontmatter. To update them after adding or modifying a skill:
+
+```bash
+./scripts/update-readme-skills.sh
+```
+
+To enable the pre-commit hook that checks tables are up to date:
+
+```bash
+git config core.hooksPath .githooks
+```
+
 ## Available Skills
 
 ### Claude Code
 
+<!-- BEGIN CLAUDE-CODE SKILLS -->
 | Skill | Description |
 |-------|-------------|
 | [code-review](claude-code/skills/code-review/SKILL.md) | Review code changes as an expert maintainer against project standards |
-| [test-review](claude-code/skills/test-review/SKILL.md) | Review test code as a test expert and python packaging specialist |
 | [doc-review](claude-code/skills/doc-review/SKILL.md) | Review documentation changes as a documentation and technical writing expert |
-| [refactor-analysis](claude-code/skills/refactor-analysis/SKILL.md) | Analyze refactoring for structural regressions across 6 dimensions |
+| [pr-reading-order](claude-code/skills/pr-reading-order/SKILL.md) | Suggest the best reading order to understand and review a PR's code changes |
+| [refactor-analysis](claude-code/skills/refactor-analysis/SKILL.md) | This skill should be used when the user asks to "analyze a refactoring", "check for structural regressions", "review refactoring PR", "check refactor quality", or needs analysis of DRY violations, abstraction bypasses, behavioral changes, API compatibility, cache safety, or clean code issues in refactored code. |
+| [test-review](claude-code/skills/test-review/SKILL.md) | Review test code as a test expert and python packaging specialist |
+<!-- END CLAUDE-CODE SKILLS -->
 
 ### Cursor
 
+<!-- BEGIN CURSOR SKILLS -->
 | Skill | Description |
 |-------|-------------|
-| [refactor-analysis](cursor/skills/refactor-analysis/SKILL.md) | Analyze refactoring for structural regressions across 6 dimensions |
+| [pr-reading-order](cursor/skills/pr-reading-order/SKILL.md) | Suggest the best reading order to understand and review a PR's code changes |
+| [refactor-analysis](cursor/skills/refactor-analysis/SKILL.md) | This skill should be used when the user asks to "analyze a refactoring", "check for structural regressions", "review refactoring PR", "check refactor quality", or needs analysis of DRY violations, abstraction bypasses, behavioral changes, API compatibility, cache safety, or clean code issues in refactored code. |
+<!-- END CURSOR SKILLS -->
 
 ## License
 
