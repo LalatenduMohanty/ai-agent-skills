@@ -1,0 +1,41 @@
+{
+  "name": "ai-agent-skills",
+  "owner": {
+    "name": "Lalatendu Mohanty"
+  },
+  "metadata": {
+    "description": "A collection of reusable skills for AI coding assistants"
+  },
+  "plugins": [
+    {
+      "name": "code-review",
+      "source": "./plugins/code-review",
+      "description": "Review code changes as an expert maintainer against project standards",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "doc-review",
+      "source": "./plugins/doc-review",
+      "description": "Review documentation changes as a documentation and technical writing expert",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "pr-reading-order",
+      "source": "./plugins/pr-reading-order",
+      "description": "Suggest the best reading order to understand and review a PR's code changes",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "refactor-analysis",
+      "source": "./plugins/refactor-analysis",
+      "description": "Analyze refactoring for structural regressions including DRY violations, abstraction bypasses, and behavioral changes",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "test-review",
+      "source": "./plugins/test-review",
+      "description": "Review test code as a test expert and python packaging specialist",
+      "license": "Apache-2.0"
+    }
+  ]
+}

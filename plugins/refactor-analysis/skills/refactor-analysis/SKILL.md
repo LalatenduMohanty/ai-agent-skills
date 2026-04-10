@@ -1,7 +1,6 @@
 ---
 name: refactor-analysis
 description: This skill should be used when the user asks to "analyze a refactoring", "check for structural regressions", "review refactoring PR", "check refactor quality", or needs analysis of DRY violations, abstraction bypasses, behavioral changes, API compatibility, cache safety, or clean code issues in refactored code.
-version: 0.1.0
 user-invocable: true
 ---
 

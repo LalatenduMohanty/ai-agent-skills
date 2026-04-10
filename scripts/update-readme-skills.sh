@@ -60,8 +60,8 @@ parse_skill() {
   fi
 }
 
-# Build a markdown table for all skills under a tool directory (e.g. claude-code, cursor).
-generate_table() {
+# Build a markdown table for all Cursor skills under a tool directory.
+generate_cursor_table() {
   local tool_dir="$1"
   local entries=()
 
@@ -80,6 +80,35 @@ generate_table() {
 
   echo "| Skill | Description |"
   echo "|-------|-------------|"
+  for entry in "${sorted[@]}"; do
+    local name description file rel_path
+    name="$(printf '%s' "$entry" | cut -d$'\t' -f1)"
+    description="$(printf '%s' "$entry" | cut -d$'\t' -f2)"
+    file="$(printf '%s' "$entry" | cut -d$'\t' -f3)"
+    rel_path="${file#"$REPO_ROOT/"}"
+    echo "| [$name]($rel_path) | $description |"
+  done
+}
+
+# Build a markdown table for all plugins under the plugins/ directory.
+generate_plugins_table() {
+  local entries=()
+
+  for skill_file in "$REPO_ROOT"/plugins/*/skills/*/SKILL.md; do
+    [[ -f "$skill_file" ]] || continue
+    local entry
+    entry="$(parse_skill "$skill_file")"
+    [[ -n "$entry" ]] && entries+=("$entry")
+  done
+
+  # Sort entries alphabetically by skill name (first field)
+  local sorted=()
+  if [[ ${#entries[@]} -gt 0 ]]; then
+    readarray -t sorted < <(printf '%s\n' "${entries[@]}" | sort -t$'\t' -k1,1)
+  fi
+
+  echo "| Plugin | Description |"
+  echo "|--------|-------------|"
   for entry in "${sorted[@]}"; do
     local name description file rel_path
     name="$(printf '%s' "$entry" | cut -d$'\t' -f1)"
@@ -120,14 +149,14 @@ replace_section() {
 # Apply all table replacements to the given file.
 update_all_tables() {
   local target="$1"
-  replace_section "<!-- BEGIN CLAUDE-CODE SKILLS -->" "<!-- END CLAUDE-CODE SKILLS -->" "$claude_code_table" "$target"
+  replace_section "<!-- BEGIN PLUGINS -->" "<!-- END PLUGINS -->" "$plugins_table" "$target"
   replace_section "<!-- BEGIN CURSOR SKILLS -->" "<!-- END CURSOR SKILLS -->" "$cursor_table" "$target"
 }
 
 # --- main -------------------------------------------------------------------
 
-claude_code_table="$(generate_table "claude-code")"
-cursor_table="$(generate_table "cursor")"
+plugins_table="$(generate_plugins_table)"
+cursor_table="$(generate_cursor_table "cursor")"
 
 if [[ "${1:-}" == "--check" ]]; then
   tmp_readme="$(make_tmpfile)"

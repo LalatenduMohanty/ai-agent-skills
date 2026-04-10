@@ -1,0 +1,5 @@
+{
+  "name": "pr-reading-order",
+  "description": "Suggest the best reading order to understand and review a PR's code changes",
+  "version": "1.0.0"
+}

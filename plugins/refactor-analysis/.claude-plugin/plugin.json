@@ -1,0 +1,5 @@
+{
+  "name": "refactor-analysis",
+  "description": "Analyze refactoring for structural regressions including DRY violations, abstraction bypasses, and behavioral changes",
+  "version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "code-review",
+  "description": "Review code changes as an expert maintainer against project standards",
+  "version": "1.0.0"
+}

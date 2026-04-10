@@ -3,7 +3,8 @@ name: Check README skills tables
 on:
   pull_request:
     paths:
-      - "claude-code/skills/**"
+      - "plugins/**"
+      - ".claude-plugin/**"
       - "cursor/skills/**"
       - "general/skills/**"
       - "README.md"
@@ -11,7 +12,8 @@ on:
   push:
     branches: [main]
     paths:
-      - "claude-code/skills/**"
+      - "plugins/**"
+      - ".claude-plugin/**"
       - "cursor/skills/**"
       - "general/skills/**"
       - "README.md"
